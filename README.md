@@ -13,6 +13,7 @@
             例如： var jsonArr=[{"name":"HGP","age":18},{"height":"183cm","dataTime":"2016-09-02"}];
             
 #### json传输转换：
+
         在数据传输流程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相
     互转换是关键。
     
@@ -24,6 +25,8 @@
 
     var jsonObj = { "name": "HGP", "sex": "man" };
     
+    var jsonArr=[{"name":"HGP","age":18},{"height":"183cm","dataTime":"2016-09-02"}];
+    
     一、JSON字符串转换为JSON对象
 
     要运用上面的jsonStr，必须要将json字符串转化为JSON对象：
@@ -33,3 +36,39 @@
     var jsonObj = strjsonStr.parseJSON(); //由JSON字符串转换为JSON对象
    
     var jsonObj = JSON.parse(jsonStr); //由JSON字符串转换为JSON对象
+    
+    二、JSON对象转换为JSON字符串
+    
+    JQ： $.parseJSON( jsonStr ); //jQuery.parseJSON(jsonStr),可以将json字符串转换成json对象
+    
+    BOM：JSON.stringify(jsonObj); //可以将json对象转换成json对符串 
+    
+    js： obj.toJSONString(); //将JSON对象转化为JSON字符
+    
+#### json对象的读取：
+        
+    Alert(obj.name);//输出 HGP
+
+    Alert(obj.sex);// 输出 man
+    
+    Alert(jsonArr[0].name);// 输出 HGP
+
+    特别留心：如果obj本来就是一个JSON对象，那么运用eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是运用       
+   
+    parseJSON（）函数处理后会有疑问（抛出语法异常）。
+    
+#### json对象的修改：
+        
+    var jsonArr=[{"name":"HGP","age":18},{"height":"183cm","dataTime":"2016-09-02"}];
+    
+    jsonArr[0].name = "郝光谱";
+        
+    Alert(jsonArr[0].name);// 输出 郝光谱
+    
+#### 参考资料：
+
+ [json在线校验工具](http://www.bejson.com/ "点击前往json在线校验")
+ 
+ [XML与JSON数据转换](http://tools.jb51.net/code/xmljson "点击前往json在线校验")
+ 
+ [json优化/压缩/转换](http://tools.jb51.net/code/jsoncodeformat "点击前往json在线校验")
